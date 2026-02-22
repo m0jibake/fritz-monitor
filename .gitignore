@@ -1,0 +1,22 @@
+# Geheime Daten (EXTREM WICHTIG)
+.env
+
+# Go Binaries (werden durch Docker/Build neu erstellt)
+fritz-monitor
+fritz-collector/fritz-monitor
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Docker Daten-Ordner (Die willst du NICHT auf GitHub haben, 
+# da sie GB-groß werden und deine privaten DB-Daten enthalten)
+grafana/
+influxdb/
+etc-pihole/
+etc-dnsmasq.d/
+
+# Betriebssystem-Müll
+.DS_Store
+thumbs.db
