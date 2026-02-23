@@ -19,7 +19,7 @@ func main() {
 		}
 
 
-	clientDB := influxdb2.NewClient("http://localhost:8086", influx_token)
+	clientDB := influxdb2.NewClient("http://192.168.178.49:8086", influx_token)
 	writeAPI := clientDB.WriteAPIBlocking("justme", "mbit-monitoring")
 
 	// 1. Suche nach dem Service "WANCommonInterfaceConfig1"
@@ -36,6 +36,8 @@ func main() {
 
 		lastBytesSent, _ := client.GetTotalBytesReceived()
 		lastBytesReceived, _ := client.GetTotalBytesSent()
+
+		time.Sleep(time.Second * 1)
 		for {
 			time.Sleep(time.Second * 5)
 			currentBytesSent, _ := client.GetTotalBytesSent()

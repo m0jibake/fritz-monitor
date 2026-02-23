@@ -1,5 +1,5 @@
 # Phase 1: Kompilieren
-FROM golang:1.21-alpine AS builder
+FROM golang:1.24-alpine AS builder
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
@@ -11,5 +11,5 @@ FROM alpine:latest
 WORKDIR /root/
 COPY --from=builder /app/fritz-monitor .
 # Wir brauchen Zertifikate für HTTPS-Anfragen
-RUN apk --no-network add ca-certificates
+RUN apk add --no-cache ca-certificates
 CMD ["./fritz-monitor"]
